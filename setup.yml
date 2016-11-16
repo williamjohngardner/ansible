@@ -3,27 +3,10 @@
   remote_user: ec2-user
   become: yes
   tasks:
-    - name: Install Packages
-      pip: name=git-core state=present
-      pip: name=vim state=present
-      pip: name=python-pip state=present
-      pip: name=python-virtualenv state=present
+    - name: Install Django
       pip: name=django state=present
-      pip: name=django state=present
-      pip: name=django-bootstrap-form state=present
-      pip: name=django-extra-views state=present
-      pip: name=pillow state=present
-      pip: name=six state=present
-      pip: name=django-mathfilters state=present
-      pip: name=et-xmlfile state=present
-      pip: name=Highton state=present
-      pip: name=jdcal state=present
-      pip: name=lxml state=present
-      pip: name=openpyxl state=present
-      pip: name=requests state=present
-      pip: name=gunicorn state=present
-      pip: name=psycopg2 state=present
-      pip: name=dj-database-url state=present
-      pip: name=django-storages state=present
+    - name: Install Boto
       pip: name=boto state=present
+    - name: Synchronize Root Directory
+      synchronize: src=/etc/ansible/calculator/ dest=~/calculator
 ...
