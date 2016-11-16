@@ -31,13 +31,10 @@ class Money:
         return self.currency_type != other.currency_type
 
     def __add__(self, other):
-        return Money(self.currency_type + other.currency_type, "usd")
-
-    def __mul__(self, other):
-        return self.currency_type * other.currency_type
+        return Money(self.currency_type + other.currency_type, self.currency)
 
     def __sub__(self, other):
-        return self.currency_type - other.currency_type
+        return Money(self.currency_type - other.currency_type, self.currency)
 
     def __lt__(self, other):
         return self.currency_type < other.currency_type
